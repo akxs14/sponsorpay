@@ -1,2 +1,14 @@
 
-get offers
+%H3 Ask for new offers
+
+= form_tag "/offers", :method => "get" do
+  = label_tag :uid, "User ID:"
+  = text_field_tag :uid, "player1"
+  %br
+  = label_tag :pub0, "Customer parameters:"
+  = text_field_tag :pub0
+  %br
+  = label_tag :page, "Page:"
+  = text_field_tag :page
+  %br
+  = submit_tag "Submit"
