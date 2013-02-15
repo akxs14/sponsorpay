@@ -1,5 +1,19 @@
+%h2 Fresh offers
+%br
+= link_to "Get even fresher offers", "/offers/get"
+%br
+%br
+- if @offers.empty?
+  .no_offers
+    No offers
 
-offers list
-%br
-%br
-= link_to "Get another offer", "/offers/get"
+- if !@offers.empty?
+  - @offers.each do |offer|
+    .offer
+      .title
+        = "Offer: #{offer.title}"
+      .payout
+        = "Payout: #{offer.payout}"
+      .thumbnail
+        = image_tag offer.thumbnail["lowres"]
+    %br

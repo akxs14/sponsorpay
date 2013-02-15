@@ -1,7 +1,7 @@
 
 %H3 Ask for new offers
 
-= form_tag "/offers/submit", :method => "get" do
+= form_tag "/offers", :method => "get" do
   = label_tag :uid, "User ID:"
   = text_field_tag :uid, "player1"
   %br
@@ -12,3 +12,4 @@
   = text_field_tag :page, "1"
   %br
   = submit_tag "Submit"
+  
