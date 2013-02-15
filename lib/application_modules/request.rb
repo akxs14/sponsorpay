@@ -41,7 +41,10 @@ module Request
   end
 
   def verify_response response, signature
-    Digest::SHA1.hexdigest(response.to_s << @@APIKey)
+    generate_hash(response) == signature
   end
 
+  def generate_hash response
+    Digest::SHA1.hexdigest("#{response}#{@@APIKey}")
+  end
 end
