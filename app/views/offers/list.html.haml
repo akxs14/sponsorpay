@@ -1,6 +1,6 @@
 %h2 Fresh offers
-= "Verification result: #{@verified}, "
-= link_to "get even fresher offers", :controller => "offers", :action => "get"
+= "Verification response signature result: #{@verified}, "
+= link_to "get even fresher offers (back)", :controller => "offers", :action => "get"
 %br
 %br
 
@@ -10,11 +10,17 @@
 
 - if !@offers.empty?
   - @offers.each do |offer|
-    .offer
+    .offer.one
       .title
         = "Offer: #{offer.title}"
       .payout
         = "Payout: #{offer.payout}"
       .thumbnail
+        = link_to "Hi resolution thumbnail", offer.thumbnail['lowres']
+        %br
+        = link_to "Low resolution thumbnail", offer.thumbnail['hires']
+        %br
+        Preview
+        %br
         = image_tag offer.thumbnail["lowres"]
     %br
