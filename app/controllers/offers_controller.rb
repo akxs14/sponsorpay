@@ -9,9 +9,14 @@ class OffersController < ApplicationController
     response = HTTParty.get(req_url)
     @offers = []
 
-    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-    puts response.headers.keys
-    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    puts response.keys
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    puts response.headers["x-sponsorpay-response-signature"]
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<"    
+    puts verify_response(response, response.headers["x-sponsorpay-response-signature"])
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+
 
     response["offers"].each do |item|
       offer = Offer.new

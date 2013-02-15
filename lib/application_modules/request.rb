@@ -40,4 +40,8 @@ module Request
     Digest::SHA1.hexdigest("#{string}&#{@@APIKey}")
   end
 
+  def verify_response response, signature
+    Digest::SHA1.hexdigest(response.to_s << @@APIKey)
+  end
+
 end
