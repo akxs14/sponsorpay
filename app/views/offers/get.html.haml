@@ -1,14 +1,13 @@
 %H2 Ask for new offers
 
 = form_tag "/offers", :method => "get" do
-  = label_tag :uid, "User ID:"
-  = text_field_tag :uid, "player1"
-  %br
-  = label_tag :pub0, "Customer parameters:"
-  = text_field_tag :pub0, "campaign0"
-  %br
-  = label_tag :page, "Page:"
-  = text_field_tag :page, "1"
-  %br
-  = submit_tag "Submit"
+  %fieldset
+    = label_tag :uid, "User ID:"
+    = text_field_tag :uid, "player1"
+    = label_tag :pub0, "Customer parameters:"
+    = text_field_tag :pub0, "campaign0"
+    = label_tag :page, "Page:"
+    = text_field_tag :page, "1"
+    %br
+    = submit_tag "Submit"
   
