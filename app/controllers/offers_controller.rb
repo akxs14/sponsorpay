@@ -9,11 +9,15 @@ class OffersController < ApplicationController
     response = HTTParty.get(req_url)
     @offers = []
 
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    puts response.headers.keys
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+
     response["offers"].each do |item|
       offer = Offer.new
-      offer.title, offer.payout = item["title"], item["payout"]
-      offer.thumbnail = item["thumbnail"]
+      offer.title, offer.payout, offer.thumbnail = item["title"], item["payout"], item["thumbnail"]
       @offers.push(offer)
     end
   end
+
 end

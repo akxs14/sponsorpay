@@ -1,6 +1,6 @@
 %h2 Fresh offers
 %br
-= link_to "Get even fresher offers", "/offers/get"
+= link_to "Get even fresher offers", :controller => "offers", :action => "get"
 %br
 %br
 - if @offers.empty?
