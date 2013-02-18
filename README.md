@@ -25,3 +25,9 @@ To start:
 
 - Open your browser and direct it to http://localhost:3000
 
+
+Running the tests:
+------------------
+
+- Simply type 'rake spec' on your terminal window.
+
